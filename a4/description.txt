@@ -1,0 +1,41 @@
+Collect.py:
+————-
+In this collect.py, I have collected two datasets, I have collected 10000 tweets of united airlines for classify.py, from which I have labeled 4929 tweets using the TextBlob library. For cluster.py, I have collected 100 followers of “Bill Gates” and “Tim Cook”.
+
+Cluster.py:
+————
+In this cluster.py, I have created a networkx graph on the 100 followers data of “Bill Gates” and “Tim Cook”. I have used girvan_newman algorithm provided by networkx to identify communities in a graph. I have drawn the graph of the network before and after the clustering.
+
+Classify.py:
+—————
+In this Classify.py, I am doing a sentiment analysis on the united airlines tweets. The original data has a shape of (4929,3). I have used TextBlob library to provide positive(1) and negative(0) labels to these tweets. I did a pre-processing on these tweets, and I have removed stopwords, links, non alphanumerical words, and non-english words. After that, using this cleaned data, I converted it into a feature representation using the TfidfVectorizer of Scikit-learn. Also, I have used linear SVM model on this data. I have set class_weight parameter of SVM to ‘balanced’ as I have a class imbalance in my data.
+
+Analysis:
+————————
+
+Cluster.py:
+———————
+In clustering, I found that, from the 100 followers I collected for “Bill Gates” and “Tim Cook“, 20 of them follows both of them. Also, each of the clusters have 91 nodes in them. So, we can say that 18 of the 200 followers are treated as outlier by the clustering algorithm.
+
+Classify.py:
+———————
+In classification of tweets, I found that by using the ngram_range, and min_df parameters of the TfIdfVectorizer, it improved the accuracy. I have used a svm with a linear kernel. I have used other models such as logistic regression, and multinomial naive bayes. But, compared to the other models 
+linear svm gave me the best accuracy of 82%.
+
+Note:
+———- 
+First of all, run the collect.py file.
+
+Library Requirements:
+———————————
+1) pandas
+2) nltk
+3) sklearn
+4) re
+5) enchant
+6) warnings
+7) matplotlib
+8) itertools
+9) TextBlob
+10) TwitterAPI
+
